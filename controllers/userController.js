@@ -12,7 +12,9 @@ exports.signup = async (req, res) => {
     console.log(err);
   }
 };
+exports.login = (req, res) => {
 
+};
 exports.getAllUsers = async (req, res) => {
     try {
         const users = await User.find();
@@ -57,11 +59,11 @@ exports.updateUserInfo = async (req, res) => {
 };
 exports.deleteUser = async (req, res) => {
     try {
-        const user = await User.findByIdAndDelete(req.params.id);
+       await User.findByIdAndDelete(req.params.id);
         
         res.status(200).json({
             status: 'success',
-            data: null
+            data: null,
         });
         
     } catch (err){
